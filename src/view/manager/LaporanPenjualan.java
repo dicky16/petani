@@ -37,7 +37,7 @@ public class LaporanPenjualan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel_laporan_penjualan = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_export = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         tv_total_transaksi = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -71,7 +71,12 @@ public class LaporanPenjualan extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("LAPORAN PENJUALAN");
 
-        jButton1.setText("Export (exel)");
+        btn_export.setText("Export (exel)");
+        btn_export.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exportActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel2.setText("Total Transaksi");
@@ -98,7 +103,7 @@ public class LaporanPenjualan extends javax.swing.JFrame {
                         .addGap(0, 297, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(btn_export)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -120,7 +125,7 @@ public class LaporanPenjualan extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btn_export)
                     .addComponent(jLabel2)
                     .addComponent(tv_total_transaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -152,6 +157,11 @@ public class LaporanPenjualan extends javax.swing.JFrame {
         }
         tabel_laporan_penjualan.setModel(tabel);
     }//GEN-LAST:event_formComponentShown
+
+    private void btn_exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exportActionPerformed
+        Jual jual = new Jual();
+        jual.setExportExcel(tabel_laporan_penjualan);
+    }//GEN-LAST:event_btn_exportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,7 +199,7 @@ public class LaporanPenjualan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_export;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

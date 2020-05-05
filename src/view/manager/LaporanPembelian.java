@@ -7,6 +7,7 @@ package view.manager;
 
 import javax.swing.table.DefaultTableModel;
 import model.Beli;
+import model.Jual;
 
 /**
  *
@@ -35,7 +36,7 @@ public class LaporanPembelian extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabel_laporan_penjualan = new javax.swing.JTable();
+        tabel_laporan_pembelian = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -55,7 +56,7 @@ public class LaporanPembelian extends javax.swing.JFrame {
             }
         });
 
-        tabel_laporan_penjualan.setModel(new javax.swing.table.DefaultTableModel(
+        tabel_laporan_pembelian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -66,12 +67,17 @@ public class LaporanPembelian extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabel_laporan_penjualan);
+        jScrollPane1.setViewportView(tabel_laporan_pembelian);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("LAPORAN PEMBELIAN");
 
         jButton1.setText("Export (exel)");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel2.setText("Total Transaksi");
@@ -148,10 +154,15 @@ public class LaporanPembelian extends javax.swing.JFrame {
             }
             tv_total_transaksi.setText(""+b.getJumlahBeli());
             tv_total_beli.setText(b.setIDR(b.getTotalBeli()));
-            tabel_laporan_penjualan.setModel(tabel);
+            tabel_laporan_pembelian.setModel(tabel);
         }
 
     }//GEN-LAST:event_formComponentShown
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Jual jual = new Jual();
+        jual.setExportExcel(tabel_laporan_pembelian);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +206,7 @@ public class LaporanPembelian extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabel_laporan_penjualan;
+    private javax.swing.JTable tabel_laporan_pembelian;
     private javax.swing.JTextField tv_total_beli;
     private javax.swing.JTextField tv_total_transaksi;
     // End of variables declaration//GEN-END:variables
