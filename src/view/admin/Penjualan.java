@@ -563,8 +563,7 @@ public class Penjualan extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_bayarActionPerformed
 
     private void tv_diskonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tv_diskonKeyReleased
-        //percobaan
-        JOptionPane.showMessageDialog(this, "Belum ada transaksi");
+        
     }//GEN-LAST:event_tv_diskonKeyReleased
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
