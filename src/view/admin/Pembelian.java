@@ -396,6 +396,10 @@ public class Pembelian extends javax.swing.JFrame {
             for (int i = 0; i < data.length; i++) {
                 list.addElement(data[i][0] + "@" + data[i][1]);
             }
+            //reset
+            listBeli.removeAllElements();
+            aTotal.removeAll(aTotal);
+            tItem.removeAll(tItem);
             list_stok.setModel(list);
         }
 
