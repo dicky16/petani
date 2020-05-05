@@ -186,11 +186,6 @@ public class Penjualan extends javax.swing.JFrame {
         jLabel10.setText("Member");
 
         tv_jenis_member.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        tv_jenis_member.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tv_jenis_memberKeyReleased(evt);
-            }
-        });
 
         jMenu1.setText("Menu");
 
@@ -521,6 +516,7 @@ public class Penjualan extends javax.swing.JFrame {
         System.out.println("" + jumlahItem + idMember + idUser + idJenisTransaksi);
         if (jumlahItem == 0 || idUser == 0 || idJenisTransaksi == 0) {
             JOptionPane.showMessageDialog(this, "Belum ada transaksi");
+            //comennt
         } else {
             Beli beli = new Beli();
             int jumlahBaris = beli.getJumlahBaris();
@@ -566,13 +562,9 @@ public class Penjualan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_bayarActionPerformed
 
-    private void tv_jenis_memberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tv_jenis_memberKeyReleased
-
-
-    }//GEN-LAST:event_tv_jenis_memberKeyReleased
-
     private void tv_diskonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tv_diskonKeyReleased
-
+        //percobaan
+        JOptionPane.showMessageDialog(this, "Belum ada transaksi");
     }//GEN-LAST:event_tv_diskonKeyReleased
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
