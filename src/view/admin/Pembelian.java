@@ -400,6 +400,7 @@ public class Pembelian extends javax.swing.JFrame {
             listBeli.removeAllElements();
             aTotal.removeAll(aTotal);
             tItem.removeAll(tItem);
+            //end reset
             list_stok.setModel(list);
         }
 

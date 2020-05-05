@@ -176,6 +176,8 @@ public class Pembayaran extends javax.swing.JFrame {
                             bayar.updateStokHasilPanen(id, total);
                         }
                     }
+                    idJenisHasilPanen.removeAll(idJenisHasilPanen);
+                    beratHasilPanen.removeAll(beratHasilPanen);
                 } else {
                     System.out.println("inser to db stok gagal");
                 }
@@ -198,11 +200,14 @@ public class Pembayaran extends javax.swing.JFrame {
                         if (id == 0) {
                             bayar.insertToDBStokHasilPanen(idJenisHasilPanen.get(i), beratHasilPanen.get(i), keterangan);
                         } else {
+                            System.out.println("total : "+beratHasilPanen.get(i));
                             int jumlah = bayar.getJumlahStok(id);
                             int total = jumlah - beratHasilPanen.get(i);
                             bayar.updateStokHasilPanen(id, total);
                         }
                     }
+                    idJenisHasilPanen.removeAll(idJenisHasilPanen);
+                    beratHasilPanen.removeAll(beratHasilPanen);
                 } else {
                     System.out.println("inser to db stok gagal");
                 }
