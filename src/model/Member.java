@@ -283,6 +283,27 @@ public class Member extends Person {
         }
         return id;
     }
+    
+    //get jenis member by id member
+    public String getJenisMemberById(int id) {
+        Koneksi koneksi = new Koneksi();
+        Connection connection = koneksi.koneksiDatabase();
+        String jenis = null;
+        try {
+            stmt = connection.createStatement();
+            query = "SELECT j.jenis_member FROM tb_member m "
+                    + "INNER JOIN tb_jenismember j ON m.id_jenisMember = j.id_jenisMember WHERE m.id_member = "+id+"; ";
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                jenis = rs.getString(1);
+            }
+            stmt.close();
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println("Error : " + ex.getMessage());
+        }
+        return jenis;
+    }
 
     //data diskon
     public double[] getDiskonSilver(int total) {

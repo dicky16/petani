@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.Beli;
 import model.Jual;
+import model.Member;
 import model.User;
 import view.Petani;
 import view.Profil;
@@ -475,11 +476,12 @@ public class Penjualan extends javax.swing.JFrame {
         } else {
 
             int id = Integer.parseInt(idMember);
-            if (id > 0 && id < 4) {
-                String data[] = jual.getListJenisMemberById(id);
-                String mMember[] = data[0].split("-");
-                String jMember = mMember[1];
-                tv_jenis_member.setText(jMember);
+            if (id > 0) {
+//                String data[] = jual.getListJenisMemberById(id);
+//                String mMember[] = data[0].split("-");
+//                String jMember = mMember[1];
+                String data = jual.getJenisMemberById(id);
+                tv_jenis_member.setText(data);
                 String jenis = tv_jenis_member.getText();
                 Jual j = new Jual();
                 if (mTotal != 0) {
