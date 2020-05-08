@@ -176,7 +176,7 @@ public class Beli extends HasilPanen implements Transaksi {
         }
         return totalBaris;
     }
-    
+
     public String setIDR(double var) {
         //rupiah format
         String idr;

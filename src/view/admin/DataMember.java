@@ -409,6 +409,7 @@ public class DataMember extends javax.swing.JFrame {
             m.deleteData(id);
             setDataTable(m);
         }
+        tabel.fireTableDataChanged();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     /**

@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.Beli;
 import model.Jual;
-import model.Member;
 import model.User;
 import view.Petani;
 import view.Profil;
@@ -107,6 +106,11 @@ public class Penjualan extends javax.swing.JFrame {
         jLabel1.setText("CV. PETANI JAYA");
 
         edt_cari.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        edt_cari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edt_cariKeyReleased(evt);
+            }
+        });
 
         btn_pilih.setBackground(new java.awt.Color(0, 153, 51));
         btn_pilih.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -622,13 +626,43 @@ public class Penjualan extends javax.swing.JFrame {
             }
 
             //reset
-            
             aTotal.removeAll(aTotal);
             tItem.removeAll(tItem);
             //end reset
             list_stok.setModel(listModel);
         }
     }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void edt_cariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edt_cariKeyReleased
+        String key = edt_cari.getText();
+        Jual j = new Jual();
+        if (key.isEmpty()) {
+            listModel.removeAllElements();
+            String data[][] = j.getDataStok();
+            if (data.length > 0) {
+                for (int i = 0; i < data.length; i++) {
+                    listModel.addElement(data[i][0] + " @" + data[i][1] + " @" + data[i][2] + " kg");
+                }
+
+                //reset
+                listJual.removeAllElements();
+                aTotal.removeAll(aTotal);
+                tItem.removeAll(tItem);
+                //end reset
+                list_stok.setModel(listModel);
+            }
+        } else {
+            listModel.removeAllElements();
+            String data[][] = j.cariDataStok(key);
+            if (data.length > 0) {
+                for (int i = 0; i < data.length; i++) {
+                    listModel.addElement(data[i][0] + " @" + data[i][1] + " @" + data[i][2] + " kg");
+                }
+                list_stok.setModel(listModel);
+            }
+        }
+
+    }//GEN-LAST:event_edt_cariKeyReleased
 
     /**
      * @param args the command line arguments

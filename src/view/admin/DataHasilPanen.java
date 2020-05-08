@@ -427,6 +427,7 @@ public class DataHasilPanen extends javax.swing.JFrame {
             }
             tabel_jenis_hasil_panen.setModel(tabel);
         }
+        tabel.fireTableDataChanged();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void edt_cariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edt_cariKeyReleased

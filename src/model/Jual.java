@@ -61,6 +61,36 @@ public class Jual extends Member {
         }
         return data;
     }
+    
+    public String[][] cariDataStok(String key) {
+        Koneksi koneksi = new Koneksi();
+        com.mysql.jdbc.Connection connection = koneksi.koneksiDatabase();
+        String data[][] = null;
+        try {
+            stmt = connection.createStatement();
+            query = "SELECT j.nama, j.harga_jual, s.jumlah_stok_tersedia FROM stok_hasil_panen s "
+                    + "INNER JOIN tb_jenishasilpanen j ON s.id_jenisHasilPanen = j.id_jenisHasilPanen "
+                    + "WHERE jumlah_stok_tersedia > 0 AND j.nama LIKE '%"+key+"%' "
+                    + "order by j.nama; ";
+            rs = stmt.executeQuery(query);
+            ResultSetMetaData meta = rs.getMetaData();
+            int jmlKolom = meta.getColumnCount();
+            int jmlBaris = getJumlahBaris(rs);
+            data = new String[jmlBaris][jmlKolom];
+            int r = 0;
+            while (rs.next()) {
+                for (int c = 0; c < jmlKolom; c++) {
+                    data[r][c] = rs.getString(c + 1);
+                }
+                r++;
+            }
+            stmt.close();
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println("Error : " + ex.getMessage());
+        }
+        return data;
+    }
 
     public int getJumlahBaris(ResultSet res) {
         int totalBaris = 0;

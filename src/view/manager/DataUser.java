@@ -362,6 +362,7 @@ public class DataUser extends javax.swing.JFrame {
         user.deleteData(id);
         JOptionPane.showMessageDialog(this, "Data berhasil dihapus");
         setDataTable(user);
+        tabel.fireTableDataChanged();
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     /**

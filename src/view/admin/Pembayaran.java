@@ -51,7 +51,6 @@ public class Pembayaran extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,8 +59,6 @@ public class Pembayaran extends javax.swing.JFrame {
         edt_total_bayar = new javax.swing.JTextField();
         edt_id_transaksi = new javax.swing.JTextField();
         btn_konfirmasi = new javax.swing.JButton();
-
-        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -262,7 +259,6 @@ public class Pembayaran extends javax.swing.JFrame {
     private javax.swing.JTextField edt_id_transaksi;
     private javax.swing.JTextField edt_tanggal_bayar;
     private javax.swing.JTextField edt_total_bayar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
